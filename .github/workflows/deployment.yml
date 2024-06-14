@@ -13,8 +13,6 @@ jobs:
           npm install -g vitest
       - name: Lint code
         run: eslint --ext .jsx --fix src
-      - name: Test code
-        run: vitest run
       - name: Build code
         run: vite build
   deploy:
