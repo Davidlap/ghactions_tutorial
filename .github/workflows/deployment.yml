@@ -1,0 +1,21 @@
+name: Deployment
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        run: actions/checkout@v3
+      - name: Test code
+        run: vitest run
+      - name: Lint code
+        run: eslint --ext .jsx --fix src
+      - name: Build code
+        run: vite build
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "Deploying..."
