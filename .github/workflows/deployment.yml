@@ -10,10 +10,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
             node-version: 20
-      - name: install eslint
-        run: npm -g i eslint-cli
-      - name: install eslint locally
-        run: npm install eslint --save-dev
+      - name: install dependencies
+        run: |
+          npm -g i eslint-cli
+          npm install eslint --save-dev
+          npm install -g vitest
       - name: Lint code
         run: eslint --ext .jsx --fix src
       - name: Test code
