@@ -18,8 +18,6 @@ jobs:
           npm install -g vitest
           npm i
           npm install -g vite
-      - name: Run something
-        run: vite
       - name: Lint code
         run: eslint --ext .jsx --fix src
       - name: Build code
