@@ -1,32 +1,42 @@
-name: Deployment
-on: push
+# name: Deployment
+# on: push
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Get code
+#         uses: actions/checkout@v3
+#       - name: Install NodeJS
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: 20
+#       - name: install dependencies
+#         run: |
+#           npm ci
+#           npm -g i eslint-cli
+#           npm install eslint --save-dev
+#           npm install -g vitest
+#           npm i
+#           npm install -g vite
+#       - name: Lint code
+#         run: eslint --ext .jsx --fix src
+#       - name: test code
+#         run: vitest run
+#       - name: Build code
+#         run: vite build
+#   deploy:
+#     needs: test
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: deploy
+#         run: echo "Deploying..."
+name: Print out stuff
+on:
+  issue_comment:
+    types: created
 jobs:
-  test:
+  print-details:
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - name: install dependencies
-        run: |
-          npm ci
-          npm -g i eslint-cli
-          npm install eslint --save-dev
-          npm install -g vitest
-          npm i
-          npm install -g vite
-      - name: Lint code
-        run: eslint --ext .jsx --fix src
-      - name: test code
-        run: vitest run
-      - name: Build code
-        run: vite build
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: deploy
-        run: echo "Deploying..."
+      - name: Print details
+        run: echo ${{ github }}
